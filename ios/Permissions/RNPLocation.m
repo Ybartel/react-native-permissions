@@ -45,11 +45,7 @@
             self.locationManager.delegate = self;
         }
 
-        if ([type isEqualToString:@"always"]) {
-            [self.locationManager requestAlwaysAuthorization];
-        } else {
-            [self.locationManager requestWhenInUseAuthorization];
-        }
+        [self.locationManager requestWhenInUseAuthorization];
     } else {
         if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedWhenInUse && [type isEqualToString:@"always"]) {
             completionHandler(RNPStatusDenied);
